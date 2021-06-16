@@ -1,0 +1,19 @@
+all: libcontainer.so
+
+list.o: list.c
+	gcc -fpic -c list.c
+	
+htable.o: htable.c
+	gcc -fpic -c htable.c
+	
+http_get_json_data.o: http_get_json_data.c
+	gcc -fpic -c http_get_json_data.c 
+	
+solar.o: solar.c
+	gcc -fpic -c solar.c
+
+libcontainer.so: list.o htable.o http_get_json_data.o solar.o
+	gcc -shared -o libcontainer.so list.o htable.o http_get_json_data.o solar.o -lcurl -ljansson
+	
+clean:
+	rm *.o main

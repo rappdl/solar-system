@@ -1,0 +1,10 @@
+all: main
+
+main.o: main.c
+	gcc -c main.c
+	
+main: main.o 
+	gcc main.o -ljansson -L/home/isel/Desktop/TP3/lib -lcontainer -o main 
+	  
+clean:
+	rm *.o main
