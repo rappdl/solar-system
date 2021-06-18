@@ -39,7 +39,7 @@ This menu will be printed.
 2. Will print the planets present in solar system.
 3. Will print the satellites of the solar system.
 4. Will print ask you to introduce a body of your choice and will print all the information of that body.
-5.  Will exit the application.
+5. Will exit the application.
 ```
 
 ## Contributing
