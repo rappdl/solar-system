@@ -49,4 +49,4 @@ Please make sure to update tests as appropriate.
 
 
 ## License
-[MIT License] (./LICENSE)
+[MIT License] (LICENSE)
