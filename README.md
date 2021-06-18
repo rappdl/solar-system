@@ -10,10 +10,10 @@ The CURL library is used to stablish the connections to the server using HTTP an
 
 Run these commands in the terminal to install the libraries:
 ```bash
-    $ sudo apt-get install libcurl4-gnutls-dev
+$ sudo apt-get install libcurl4-gnutls-dev
 ```
 ```bash
-    $ sudo apt-get install libjansson-dev
+$ sudo apt-get install libjansson-dev
 ```
 
 
