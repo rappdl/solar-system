@@ -18,7 +18,7 @@ WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
   char *ptr = realloc(mem->memory, mem->size + realsize + 1);
   if(ptr == NULL) {
     /* out of memory! */ 
-    printf("not enough memory (realloc returned NULL)\n");
+    printf("Not enough memory (realloc returned NULL)\n");
     return 0;
   }
   mem->memory = ptr;
@@ -30,7 +30,7 @@ WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
 }
  
 json_t *http_get_json_data (const char *url){
-	//criar o chunk
+	//Create the chunk
 	struct MemoryStruct chunk;
 	chunk.memory = malloc(1);
 	chunk.size = 0;
@@ -38,8 +38,7 @@ json_t *http_get_json_data (const char *url){
 	CURL *curl;
     CURLcode res;
     
-    //inicar a ligação ao site e escrever no buffer
-    //curl_global_init();
+    //Init the connection to the website
     curl_global_init(CURL_GLOBAL_ALL);
     curl = curl_easy_init();
     if(curl) {
@@ -60,14 +59,14 @@ json_t *http_get_json_data (const char *url){
         else printf("%lu bytes retrieved\n\n", (unsigned long)chunk.size);
 
 	json_error_t error;
-	//obter a informação do chunk
+	//Get the chunck information
 	json_t *root = json_loadb(chunk.memory, chunk.size, JSON_DECODE_ANY, &error);
 	if ( !json_is_object(root)) {
 		fprintf(stderr, "Error: line%d, column %d : %s\n",
 			error.line, error.column, error.text);
 		return NULL;
 	}
-	//libertar a memória 
+	//free memory
 	curl_easy_cleanup(curl);
     free(chunk.memory);
 	curl_global_cleanup();

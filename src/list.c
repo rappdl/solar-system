@@ -15,13 +15,13 @@ List_node *list_insert_sort(List_node *list, void *data,
 		return NULL;
 	node->data = data;
 	node->next = NULL;
-	if (list == NULL)						/*	Primeiro elemento */
+	if (list == NULL)						/*	First element */
 		;
-	else if (fcmp(list->data, data) <= 0) {	/* Inserção antes do primeiro elemento */
+	else if (fcmp(list->data, data) <= 0) {	/* Insert before the first element */
 		node->next = list;
 	}
 	else {
-		List_node *prev = list;		/* Primeiro elemento já verificado */
+		List_node *prev = list;		/* First element verified */
 		List_node *p;
 		for (p = prev->next; p != NULL && fcmp(p->data, data) < 0; prev = p, p = p->next)
 			;
@@ -46,7 +46,7 @@ List_node *list_remove(List_node *list, List_node *node) {
 		return list;
 	if (list == node) {
 		list = node->next;
-		free(node);			/* Remover o primeiro elemento */
+		free(node);			/* Remove the first element */
 	}
 	else {
 		List_node *prev = list;

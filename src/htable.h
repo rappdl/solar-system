@@ -1,7 +1,6 @@
 /*	Instituto Superior de Engenharia de Lisboa
 	Ezequiel Conde, 2010
 
-	As listas de colisão têm sentinela na própria tabela
 */
 #ifndef HTABLE_H
 #define HTABLE_H

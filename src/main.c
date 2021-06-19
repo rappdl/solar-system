@@ -7,27 +7,26 @@
 #include "list.h"
 #include "solar.h"
 
-int get_cmd(){								//obtem o comando a executar
+//get the command from CL
+int get_cmd(){								
 	int cmd;
 	char str [64];
 	List_node *list;
 	
 	scanf("%d", &cmd);
 	
-	switch (cmd) {
-		//ACRESCENTAR O CORPO INDICADO COM ESTE NOME
-		
-		case 1:								//lista os corpos 
+	switch (cmd) {	
+		case 1:								//list all bodyes
 			list_bodies();
 			break;
 		case 2:
-			list = solar_get_planets();		//lista os planetas
+			list = solar_get_planets();		//list the planets
 			printf("\n");
 			list_foreach(list, print_data, NULL);
 			printf("Number of planets: %d\n", list_size(list));
 			list_destroy(list);
 			break;
-		case 3:								//lista os satelites de um corpo
+		case 3:								//list the satellites from a body
 			printf("\nWich body? ");
 			scanf("%s", str);
 			printf("\n");
@@ -40,10 +39,9 @@ int get_cmd(){								//obtem o comando a executar
 				}else printf("This body has no satellites\n");
 			}else printf("Body not recognize\n");
 			break;
-		case 4:
+		case 4:								//Ask for a body to print his information
 			printf("\nWich body? ");
 			scanf("%s", str);
-			//printf("\n");
 			body = solar_get_body(str);
 			if(body!=NULL) print_data(body, NULL);
 			else printf("Body not recognize\n");
@@ -58,7 +56,7 @@ int get_cmd(){								//obtem o comando a executar
 	return cmd;
 }
 
-void print_menu(){									//dá print do menu
+void print_menu(){									//prints the main menu
 	printf("Options:\n");
 	printf("1. List all bodies\n");
 	printf("2. List planets\n");
@@ -68,9 +66,9 @@ void print_menu(){									//dá print do menu
 	printf("Insert command: ");
 }
 
-//https://api.le-systeme-solaire.net/rest/bodies
+
 int main(int argc, char *argv[]) {	
-	const char *url = argv[1];
+	const char *url = "https://api.le-systeme-solaire.net/rest/bodies";
 	json_error_t error;
 	json_t *root = http_get_json_data(url);
 	if ( !json_is_object(root)) {
