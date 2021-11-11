@@ -1,6 +1,6 @@
 # Solar System Console App
 
-This is a simple console application built in C that shows some information about the solar system. 
+This is a simple console application built with C that shows some information about the solar system. 
 
 The app uses the public [Solar System openData API](https://api.le-systeme-solaire.net/).
 
@@ -43,8 +43,7 @@ This menu will be printed.
 ```
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.S
 Please make sure to update tests as appropriate.
 
 
